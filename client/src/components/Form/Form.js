@@ -5,8 +5,7 @@ import FileBase64 from 'react-file-base64';
 import styles from './styles';
 
 import { createPost } from '../../actions/posts';
-import { useDispatch, useSelector } from 'react-redux';
-import { updatePost } from '../../api';
+import { useDispatch } from 'react-redux';
 
 export const Form = () => {
     const dispatch = useDispatch();
