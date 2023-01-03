@@ -2,7 +2,12 @@ import React from "react";
 
 import moment from 'moment';
 
-import {Card, CardMedia, CardContent,Button, Typography, Box } from '@mui/material';
+import {Card, CardMedia, CardContent, CardActions, Button, Typography, Box } from '@mui/material';
+
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
+import DeleteIcon from '@mui/icons-material/Delete';
+
 import styles from './styles';
 
 export const Post = ({ post, setCurrentId }) => {
@@ -19,6 +24,7 @@ export const Post = ({ post, setCurrentId }) => {
                 size="small" 
                 onClick={() => {setCurrentId(post._id)}}
             >
+            <MoreHorizIcon />
             </Button>
         </Box>
         <Box sx={styles.details}>
@@ -28,6 +34,11 @@ export const Post = ({ post, setCurrentId }) => {
         <CardContent>
             <Typography variant="body2" color="textSecondary" component="p">{post.message}</Typography>
         </CardContent>
+        <CardActions sx={styles.cardActions}>
+            <Button size="small" color="primary"><ThumbUpAltIcon /> Like {post.likeCount}</Button>
+            <Button size="small" color="primary"><DeleteIcon /> Delete</Button>
+        </CardActions>
         </Card>
+        
     )
 }
