@@ -23,10 +23,10 @@ export const createPost = createAsyncThunk('CREATE', async (newPost) => {
         }
 })
 
-export const updatePost = createAsyncThunk('UPDATE', async (updatedPost) => {
+export const updatePost = createAsyncThunk('UPDATE', async ({id, updatedPost}) => {
         try {
         
-                const response = await api.updatePost(String(updatedPost._id), updatedPost);
+                const response = await api.updatePost(id, updatedPost);
                 
                 return response.data;
 

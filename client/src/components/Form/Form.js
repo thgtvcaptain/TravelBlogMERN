@@ -25,12 +25,14 @@ export const Form = ({currentId, setCurrentId}) => {
         e.preventDefault();
         
         if(currentId) {
-            dispatch(updatePost(currentId, postData));
+            //console.log('updating');
+            dispatch(updatePost({id: currentId, updatedPost: postData}));
+            clear();
         } else {
             dispatch(createPost(postData));
+            clear();
         }
 
-        clear();
     }
 
 
