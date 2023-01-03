@@ -22,7 +22,7 @@ export const createPost = async (req, res) => {
 
         res.status(201).json(newPost);
     } catch (error) {
-        res.json({message: error.message});
+        res.json(error);
     }  
 }
 
@@ -33,7 +33,19 @@ export const updatePost = async (req, res) => {
 
     if(!mongoose.Types.ObjectId.isValid(id)) res.status(404).send({message: 'There is no such id'});
 
-    const post = await Post.findByIdAndUpdate(id, updatedPost);
-//
-    res.json(post);
+    try {
+        const post = await Post.findByIdAndUpdate(id, updatedPost);
+
+        res.json(post);
+    } catch (error) {
+        res.json(error);
+    }  
+}
+
+export const deletePost = async (req, res) => {
+    const { id } = req.params;
+
+    if(!mongoose.Types.ObjectId.isValid(id)) res.status(404).send({message: 'There is no such id'});
+
+    await
 }
