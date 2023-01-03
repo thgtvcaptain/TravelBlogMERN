@@ -5,7 +5,7 @@ import moment from 'moment';
 import {Card, CardMedia, CardContent,Button, Typography, Box } from '@mui/material';
 import styles from './styles';
 
-export const Post = ({ post }) => {
+export const Post = ({ post, setCurrentId }) => {
     return (
         <Card sx={styles.card}>
             <CardMedia sx={styles.media} image={post.selectedFile} title={post.title}/>
@@ -17,7 +17,7 @@ export const Post = ({ post }) => {
             <Button 
                 style={{ color: 'white' }} 
                 size="small" 
-                onClick={() => {}}
+                onClick={() => {setCurrentId(post._id)}}
             >
             </Button>
         </Box>
