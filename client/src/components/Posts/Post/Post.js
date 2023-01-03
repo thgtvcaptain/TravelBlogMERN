@@ -8,9 +8,15 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import DeleteIcon from '@mui/icons-material/Delete';
 
+import { useDispatch } from 'react-redux';
+import { deletePost } from '../../../actions/posts';
+
 import styles from './styles';
 
 export const Post = ({ post, setCurrentId }) => {
+
+    const dispatch = useDispatch();
+
     return (
         <Card sx={styles.card}>
             <CardMedia sx={styles.media} image={post.selectedFile} title={post.title}/>
@@ -36,7 +42,7 @@ export const Post = ({ post, setCurrentId }) => {
         </CardContent>
         <CardActions sx={styles.cardActions}>
             <Button size="small" color="primary"><ThumbUpAltIcon /> Like {post.likeCount}</Button>
-            <Button size="small" color="primary"><DeleteIcon /> Delete</Button>
+            <Button size="small" color="primary"  onClick={() => dispatch(deletePost(post._id))}><DeleteIcon /> Delete</Button>
         </CardActions>
         </Card>
         

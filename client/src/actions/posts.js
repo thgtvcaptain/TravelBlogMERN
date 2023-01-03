@@ -35,3 +35,13 @@ export const updatePost = createAsyncThunk('UPDATE', async ({id, updatedPost}) =
         }
 })
 
+export const deletePost = createAsyncThunk('DELETE', async (id) => {
+        try {
+                await api.deletePost(id);
+
+                return id;
+        } catch (error) {
+                console.log(error);
+        }
+})
+
