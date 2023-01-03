@@ -34,7 +34,7 @@ export const updatePost = async (req, res) => {
     if(!mongoose.Types.ObjectId.isValid(id)) res.status(404).send({message: 'There is no such id'});
 
     try {
-        const post = await Post.findByIdAndUpdate(id, updatedPost);
+        const post = await Post.findByIdAndUpdate(id, updatedPost, {new : true});
 
         res.json(post);
     } catch (error) {
