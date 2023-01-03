@@ -22,3 +22,16 @@ export const createPost = createAsyncThunk('CREATE', async (newPost) => {
                 console.log(error);
         }
 })
+
+export const updatePost = createAsyncThunk('UPDATE', async (updatedPost) => {
+        try {
+        
+                const response = await api.updatePost(String(updatedPost._id), updatedPost);
+                
+                return response.data;
+
+        } catch (error) {
+                console.log(error);
+        }
+})
+
