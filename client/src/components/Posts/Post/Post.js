@@ -9,7 +9,7 @@ import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 import { useDispatch } from 'react-redux';
-import { deletePost } from '../../../actions/posts';
+import { deletePost, likePost } from '../../../actions/posts';
 
 import styles from './styles';
 
@@ -41,8 +41,8 @@ export const Post = ({ post, setCurrentId }) => {
             <Typography variant="body2" color="textSecondary" component="p">{post.message}</Typography>
         </CardContent>
         <CardActions sx={styles.cardActions}>
-            <Button size="small" color="primary"><ThumbUpAltIcon /> Like {post.likeCount}</Button>
-            <Button size="small" color="primary"  onClick={() => dispatch(deletePost(post._id))}><DeleteIcon /> Delete</Button>
+            <Button size="small" color="primary" onClick={() => dispatch(likePost(post._id))}><ThumbUpAltIcon /> Like {post.likeCount}</Button>
+            <Button size="small" color="primary" onClick={() => dispatch(deletePost(post._id))}><DeleteIcon /> Delete</Button>
         </CardActions>
         </Card>
         

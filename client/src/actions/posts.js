@@ -45,3 +45,12 @@ export const deletePost = createAsyncThunk('DELETE', async (id) => {
         }
 })
 
+export const likePost = createAsyncThunk('LIKE', async(id) => {
+        try {
+                const response = await api.likePost(id);
+
+                return response.data;
+        } catch (error) {
+                console.log(error);
+        }
+})
