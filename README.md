@@ -2,6 +2,7 @@
  A MERN project about traveling where user can post blog
  The project is made based on youtube tutorial from Javascript Mastery
  4 part of tutorial playlist will be divided into 4 branch:
+ 
  Part 1: Display And Create Post (done)
  https://www.youtube.com/watch?v=ngc9gnGgUdA
 
